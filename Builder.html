@@ -1,0 +1,376 @@
+<html>
+    <head>
+        <title>Idea Builder</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: "Plus Jakarta Sans", Arial, sans-serif;
+                background: #e8eef4;
+                color: #111;
+            }
+
+            nav {
+                text-align: left;
+                width: 100%;
+                padding: 1rem 2rem 0;
+                border-bottom: 6px solid #6f42c1;
+                box-sizing: border-box;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1.5rem;
+                list-style: none;
+                margin: 0;
+                padding: 0 0 1rem;
+                flex-wrap: wrap;
+            }
+
+            nav li {
+                display: inline-block;
+            }
+
+            nav a {
+                color: #111;
+                text-decoration: none;
+                border: 3px solid #6f42c1;
+                border-radius: 10px;
+                padding: 0.5rem 0.9rem;
+                display: inline-block;
+                background: #e0edf1;
+                font-weight: 600;
+            }
+
+            .builder-shell {
+                max-width: 900px;
+                margin: 40px auto;
+                padding: 24px;
+            }
+
+            h1 {
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            .stage-flow {
+                display: flex;
+                justify-content: center;
+                margin-top: 24px;
+            }
+
+            .stage-card {
+                width: 100%;
+                max-width: 760px;
+                padding: 24px;
+                background: #ffffff;
+                border: 4px solid #8b5cf6;
+                border-radius: 18px;
+                box-shadow: 0 8px 24px rgba(107, 70, 193, 0.12);
+            }
+
+            .stage-header {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-bottom: 18px;
+                color: #4c1d95;
+            }
+
+            .option-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+
+            .option {
+                padding: 16px 12px;
+                font-size: 1rem;
+                font-weight: 600;
+                border: 2px solid #8b5cf6;
+                border-radius: 12px;
+                background: #f5f3ff;
+                color: #3b0764;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .option:hover,
+            .option.selected {
+                background: #ede9fe;
+                transform: translateY(-1px);
+                box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+            }
+
+            .idea-box {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 2px solid #ddd6fe;
+            }
+
+            label {
+                display: block;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            textarea,
+            input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 12px;
+                border: 2px solid #c4b5fd;
+                border-radius: 10px;
+                resize: vertical;
+                font: inherit;
+            }
+
+            .generate-button {
+                margin-top: 16px;
+                padding: 12px 20px;
+                background: #8b5cf6;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .result-panel {
+                margin-top: 24px;
+                display: flex;
+                justify-content: center;
+            }
+
+            #result {
+                max-width: 100%;
+                max-height: 500px;
+                border: 4px solid #8b5cf6;
+                border-radius: 18px;
+                display: none;
+                background: #fff;
+            }
+
+            .status-text {
+                margin-top: 12px;
+                display: none;
+                font-weight: 700;
+                color: #4c1d95;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="Projects-scratch.html">Projects</a></li>
+                <li><a href="Builder.html">Builder</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="builder-shell">
+            <h1>Idea Builder</h1>
+
+            <div class="stage-flow">
+                <div class="stage-card">
+                    <div class="stage-header">Stage 1: Budget</div>
+                    <div class="option-grid">
+                        <button type="button" class="option" data-budget="$1">$1</button>
+                        <button type="button" class="option" data-budget="$10">$10</button>
+                        <button type="button" class="option" data-budget="$100">$100</button>
+                        <button type="button" class="option" data-budget="More?">More?</button>
+                        <button type="button" class="option" data-budget="Less????">Less????</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stage-flow">
+                <div class="stage-card">
+                    <div class="stage-header">Stage 2: Structure</div>
+                    <div class="option-grid">
+                        <button type="button" class="option structure-option" data-structure="Wood">Wood</button>
+                        <button type="button" class="option structure-option" data-structure="Steel">Steel</button>
+                        <button type="button" class="option structure-option" data-structure="Ceramic">Ceramic</button>
+                        <button type="button" class="option structure-option" data-structure="Vibraium">Vibraium</button>
+                        <button type="button" class="option structure-option" data-structure="Brick">Brick</button>
+                        <button type="button" class="option structure-option" data-structure="Culinary supplies">Culinary supplies</button>
+                        <button type="button" class="option structure-option" data-structure="Other">Other</button>
+                    </div>
+
+                    <div id="other-structure-wrapper" class="hidden" style="margin-top: 16px;">
+                        <label for="other-structure">Please specify</label>
+                        <input id="other-structure" type="text" placeholder="Please specify" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="stage-flow">
+                <div class="stage-card">
+                    <div class="stage-header">Stage 3: Scope</div>
+                    <div class="option-grid">
+                        <button type="button" class="option scope-option" data-scope="Small">Small</button>
+                        <button type="button" class="option scope-option" data-scope="Medium">Medium</button>
+                        <button type="button" class="option scope-option" data-scope="Large">Large</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stage-flow">
+                <div class="stage-card">
+                    <div class="stage-header">Stage 4: Goal</div>
+                    <label for="goal-input" style="margin-bottom: 12px;">What change do you want to see in the world?</label>
+                    <input id="goal-input" type="text" placeholder="What change do you want to see in the world?" />
+                </div>
+            </div>
+
+            <div class="stage-flow">
+                <div class="stage-card">
+                    <div class="stage-header">Stage 5: Description</div>
+                    <label for="idea">Describe your project.</label>
+                    <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your creative idea..."></textarea>
+                </div>
+            </div>
+
+            <div class="idea-box">
+                <form id="idea-form">
+                    <button type="submit" class="generate-button">Generate Image</button>
+                </form>
+
+                <div class="result-panel">
+                    <img id="result" alt="Generated idea visualization" />
+                </div>
+                <div id="status-text" class="status-text" aria-live="polite"></div>
+            </div>
+        </div>
+
+        <script>
+            let selectedBudget = "";
+            let selectedStructure = "";
+            let selectedScope = "";
+
+            const statusText = document.getElementById('status-text');
+            const resultImage = document.getElementById('result');
+
+            function updateStatus(message, isVisible = true) {
+                statusText.textContent = message;
+                statusText.style.display = isVisible ? 'block' : 'none';
+            }
+
+            function buildPrompt() {
+                const ideaText = document.getElementById('idea').value.trim();
+                const goalText = document.getElementById('goal-input').value.trim();
+                const otherStructureInput = document.getElementById('other-structure');
+                const finalStructure = selectedStructure === 'Other'
+                    ? (otherStructureInput.value.trim() || 'custom material')
+                    : selectedStructure;
+
+                return [
+                    'Create a visually compelling concept-art style image based on this idea.',
+                    `Budget: ${selectedBudget || 'not specified'}.`,
+                    `Structure: ${finalStructure || 'not specified'}.`,
+                    `Scope: ${selectedScope || 'not specified'}.`,
+                    `Goal: ${goalText || 'No specific world change provided.'}.`,
+                    `Description: ${ideaText || 'No additional description provided.'}.`,
+                    'Make it creative, polished, and highly imaginative.'
+                ].join(' ');
+            }
+
+            document.querySelectorAll('.option').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const isStructureOption = button.classList.contains('structure-option');
+                    const isScopeOption = button.classList.contains('scope-option');
+
+                    if (isStructureOption) {
+                        document.querySelectorAll('.structure-option').forEach((btn) => btn.classList.remove('selected'));
+                        button.classList.add('selected');
+                        selectedStructure = button.dataset.structure || button.textContent.trim();
+
+                        const otherWrapper = document.getElementById('other-structure-wrapper');
+                        const otherInput = document.getElementById('other-structure');
+
+                        if (selectedStructure === 'Other') {
+                            otherWrapper.classList.remove('hidden');
+                            otherInput.focus();
+                        } else {
+                            otherWrapper.classList.add('hidden');
+                            otherInput.value = '';
+                        }
+                        return;
+                    }
+
+                    if (isScopeOption) {
+                        document.querySelectorAll('.scope-option').forEach((btn) => btn.classList.remove('selected'));
+                        button.classList.add('selected');
+                        selectedScope = button.dataset.scope || button.textContent.trim();
+                        return;
+                    }
+
+                    document.querySelectorAll('.option').forEach((btn) => {
+                        if (!btn.classList.contains('structure-option') && !btn.classList.contains('scope-option')) {
+                            btn.classList.remove('selected');
+                        }
+                    });
+                    button.classList.add('selected');
+                    selectedBudget = button.dataset.budget || button.textContent.trim();
+                });
+            });
+
+            document.getElementById('idea-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const ideaText = document.getElementById('idea').value.trim();
+                const goalText = document.getElementById('goal-input').value.trim();
+
+                if (!selectedBudget || !selectedStructure || !selectedScope || !goalText || !ideaText) {
+                    updateStatus('Please complete all stages before generating an image.');
+                    return;
+                }
+
+                const prompt = buildPrompt();
+                resultImage.style.display = 'none';
+                updateStatus('Generating your image...');
+
+                try {
+                    const response = await fetch('http://localhost:5000/generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ prompt: prompt })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.error || 'The backend request failed.');
+                    }
+
+                    const imagePayload = data.data && data.data[0];
+                    if (!imagePayload) {
+                        throw new Error('No image data was returned by the backend.');
+                    }
+
+                    if (imagePayload.b64_json) {
+                        resultImage.src = `data:image/png;base64,${imagePayload.b64_json}`;
+                    } else if (imagePayload.url) {
+                        resultImage.src = imagePayload.url;
+                    } else {
+                        throw new Error('The backend returned an unexpected image format.');
+                    }
+
+                    resultImage.style.display = 'block';
+                    updateStatus('Image generated successfully.');
+                } catch (error) {
+                    console.error(error);
+                    updateStatus('Image generation failed. Make sure the Flask server is running on port 5000.');
+                    alert(`There was a problem generating the image: ${error.message}`);
+                }
+            });
+        </script>
+    </body>
+</html>
