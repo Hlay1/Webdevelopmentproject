@@ -54,6 +54,14 @@
                 text-align: center;
             }
 
+            .intro-text {
+                margin: 0 0 20px;
+                text-align: center;
+                font-size: 1.1rem;
+                color: #4c1d95;
+                line-height: 1.5;
+            }
+
             .stage-flow {
                 display: flex;
                 justify-content: center;
@@ -136,26 +144,33 @@
                 cursor: pointer;
             }
 
-            .result-panel {
-                margin-top: 24px;
-                display: flex;
-                justify-content: center;
-            }
-
-            #result {
-                max-width: 100%;
-                max-height: 500px;
+            .ideas-panel {
+                width: 100%;
+                max-width: 760px;
+                margin: 32px auto 0;
+                padding: 24px;
+                background: #ffffff;
                 border: 4px solid #8b5cf6;
                 border-radius: 18px;
-                display: none;
-                background: #fff;
+                box-sizing: border-box;
+                box-shadow: 0 8px 24px rgba(107, 70, 193, 0.12);
             }
 
-            .status-text {
-                margin-top: 12px;
-                display: none;
-                font-weight: 700;
+            .ideas-panel h2 {
+                margin: 0 0 12px;
                 color: #4c1d95;
+            }
+
+            .ideas-panel a {
+                color: #4c1d95;
+                font-weight: 700;
+            }
+
+            .idea-result-list {
+                margin: 16px 0 0;
+                padding-left: 20px;
+                line-height: 1.8;
+                color: #111;
             }
 
             .hidden {
@@ -175,7 +190,7 @@
         </nav>
         <div class="builder-shell">
             <h1>Idea Builder</h1>
-
+            <p class="intro-text">Use the options below to generate some ideas for your next project!</p>
             <div class="stage-flow">
                 <div class="stage-card">
                     <div class="stage-header">Stage 1: Budget</div>
@@ -220,31 +235,14 @@
                 </div>
             </div>
 
-            <div class="stage-flow">
-                <div class="stage-card">
-                    <div class="stage-header">Stage 4: Goal</div>
-                    <label for="goal-input" style="margin-bottom: 12px;">What change do you want to see in the world?</label>
-                    <input id="goal-input" type="text" placeholder="What change do you want to see in the world?" />
-                </div>
-            </div>
-
-            <div class="stage-flow">
-                <div class="stage-card">
-                    <div class="stage-header">Stage 5: Description</div>
-                    <label for="idea">Describe your project.</label>
-                    <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your creative idea..."></textarea>
-                </div>
-            </div>
-
             <div class="idea-box">
-                <form id="idea-form">
-                    <button type="submit" class="generate-button">Generate Image</button>
-                </form>
+                <div id="status-text" class="status-text" aria-live="polite" style="margin-top: 12px; display: none; font-weight: 700; color: #4c1d95;"></div>
+            </div>
 
-                <div class="result-panel">
-                    <img id="result" alt="Generated idea visualization" />
-                </div>
-                <div id="status-text" class="status-text" aria-live="polite"></div>
+            <div class="ideas-panel">
+                <h2>Matching Ideas</h2>
+                <p>Reference list: <a href="Possible%20ideas" target="_blank" rel="noopener">Possible ideas</a></p>
+                <ul id="idea-results" class="idea-result-list"></ul>
             </div>
         </div>
 
@@ -254,30 +252,67 @@
             let selectedScope = "";
 
             const statusText = document.getElementById('status-text');
-            const resultImage = document.getElementById('result');
+            const ideaResults = document.getElementById('idea-results');
+
+            const ideaDatabase = {
+                "$1": {
+                    Wood: { Small: ["Toothpick model bridge", "Mini wooden bookmark (scrap wood)", "Popsicle-stick phone stand", "Scrap-wood keychain", "Tiny wooden puzzle piece"], Medium: ["Small shelf from discarded pallet wood", "Rustic picture frame", "Simple bird perch", "Scrap-wood desk organizer", "Mini planter box"], Large: ["Pallet-wood outdoor bench", "Garden compost bin", "Rustic wall paneling", "Wooden crate storage system", "DIY pallet coffee table"] },
+                    Steel: { Small: ["Paperclip sculpture", "Tin-can candle holder", "Small wire hook", "Binder-clip phone stand", "Steel washer keychain"], Medium: ["Tin-can lantern", "Wire photo display", "Scrap-metal wind chime", "Simple metal bracket shelf", "Steel-washer coaster set"], Large: ["Scrap-metal garden trellis", "Rebar art sculpture", "Tin-can rocket stove", "Sheet-metal reflector oven", "Steel-pipe clothes rack (found pipes)"] },
+                    Ceramic: { Small: ["Broken-tile mosaic coaster", "Ceramic shard jewelry", "Mini planter from a broken mug", "Mosaic fridge magnet", "Ceramic shard keychain"], Medium: ["Mosaic stepping stone", "Tile-top side table (scrap tile)", "Ceramic wall art", "Mosaic serving tray", "Broken-pot fairy garden"], Large: ["Mosaic patio tabletop", "Ceramic garden path", "Large mosaic mural", "Repaired pottery display", "Ceramic-tile fire pit surround"] },
+                    Vibraium: { Small: ["Mini 'energy core' prop", "Vibranium-themed keychain", "Tiny shield replica", "Sci-fi badge", "Micro-prop for cosplay"], Medium: ["Vibranium gauntlet prop", "Sci-fi wall panel", "Futuristic mask", "Energy-reactor desk ornament", "Vibranium-style dagger prop"], Large: ["Full cosplay shield", "Sci-fi armor chest piece", "Vibranium reactor display", "Futuristic door panel", "Full helmet build"] },
+                    Brick: { Small: ["Mini brick paperweight", "Brick pencil holder", "Brick bookend", "Brick planter", "Brick candle stand"], Medium: ["Brick BBQ starter chimney", "Brick garden border", "Brick fire-safe box", "Brick tool stand", "Brick outdoor stool"], Large: ["Brick oven base", "Brick fire pit", "Brick retaining wall", "Brick grill station", "Brick patio square"] },
+                    "Culinary supplies": { Small: ["Sugar-cube sculpture", "Pasta-stick model tower", "Salt-dough ornament", "Spice-jar candle holder", "Cookie-cutter clay mold"], Medium: ["Salt-dough bowl", "Pasta-art wall piece", "DIY spice rack (reused jars)", "Bread-dough sculpture", "Culinary-themed centerpiece"], Large: ["Gingerbread architectural model", "Large salt-dough statue", "Pasta-art mural", "Culinary-material sculpture", "Food-based event display"] },
+                    Other: { Small: ["Paper origami", "Rubber-band powered car", "Bottle-cap art", "Cardboard phone stand", "Mini duct-tape wallet"], Medium: ["Cardboard VR viewer", "Plastic-bottle planter", "Rope wall hanging", "DIY kite", "Simple LED throwie"], Large: ["Cardboard furniture", "PVC pipe greenhouse frame", "Large rope hammock", "DIY tarp shelter", "Recycled-material sculpture"] }
+                },
+                "$10": {
+                    Wood: { Small: ["Carved spoon", "Wooden dice", "Mini jewelry box", "Small picture frame", "Wooden puzzle"], Medium: ["Cutting board", "Wall shelf", "Birdhouse", "Tool caddy", "Coat rack"], Large: ["Coffee table", "Garden bench", "Bookshelf", "Raised planter", "Shoe rack"] },
+                    Steel: { Small: ["Steel-washer fidget toy", "Wire sculpture", "Tin-can stove", "Small bracket set", "Metal key organizer"], Medium: ["Metal wall art", "Wire basket", "Steel-pipe lamp base", "Sheet-metal toolbox", "Rebar garden stake"], Large: ["Steel-pipe shelving", "Metal fire pit", "Welded sculpture", "Steel-frame table", "Metal garden arch"] },
+                    Ceramic: { Small: ["Painted tile coaster", "Mini ceramic planter", "Mosaic trivet", "Tile magnet set", "Ceramic pendant"], Medium: ["Mosaic mirror frame", "Tile backsplash panel", "Ceramic wall mosaic", "Tile-top table", "Ceramic planter pot"], Large: ["Mosaic patio table", "Ceramic fountain base", "Large tile mural", "Ceramic garden path", "Tile fire-pit surround"] },
+                    Vibraium: { Small: ["Mini shield", "Energy-core prop", "Vibranium coin", "Sci-fi badge", "Tiny armor plate"], Medium: ["Arm bracer", "Helmet front plate", "Reactor prop", "Vibranium dagger", "Sci-fi shoulder armor"], Large: ["Full shield", "Chest armor", "Helmet", "Reactor display", "Full cosplay suit"] },
+                    Brick: { Small: ["Brick candle holder", "Brick bookend", "Brick planter", "Brick incense stand", "Brick paperweight"], Medium: ["Brick grill starter", "Brick garden border", "Brick tool stand", "Brick stool", "Brick mailbox base"], Large: ["Brick oven", "Brick fire pit", "Brick patio", "Brick retaining wall", "Brick grill station"] },
+                    "Culinary supplies": { Small: ["Salt-dough ornaments", "Sugar-cube sculptures", "Pasta-art models", "Spice-jar crafts", "Cookie-cutter clay shapes"], Medium: ["Salt-dough bowls", "Pasta-art wall decor", "Culinary centerpiece", "Bread-dough sculpture", "Jar-based lanterns"], Large: ["Gingerbread structures", "Large salt-dough statue", "Pasta mural", "Culinary sculpture", "Food-art display"] },
+                    Other: { Small: ["Duct-tape wallet", "Origami set", "Bottle-cap art", "Cardboard organizer", "Rope keychain"], Medium: ["PVC frame", "Cardboard VR viewer", "Rope wall hanging", "Plastic-bottle lamp", "DIY kite"], Large: ["PVC greenhouse", "Cardboard furniture", "Rope hammock", "Tarp shelter", "Recycled sculpture"] }
+                },
+                "$100": {
+                    Wood: { Small: ["Hardwood pen", "Carved figurine", "Premium picture frame", "Jewelry box", "Wooden phone amplifier"], Medium: ["Hardwood cutting board", "Floating shelf", "Wooden stool", "Wall mounted desk organizer", "Wooden lamp base"], Large: ["Custom hardwood bench", "Bookshelf unit", "Dining table accent", "Plantation-style chair set", "Large storage cabinet"] },
+                    Steel: { Small: ["Precision metal bookmark", "Steel pendant", "Custom bracket set", "Metal dice set", "Mini metal tray"], Medium: ["Steel wall sculpture", "Metal planter stand", "Custom tool rack", "Metal side table", "Steel-backed shelf"], Large: ["Steel frame bench", "Large metal table", "Garden trellis wall", "Industrial rack system", "Custom metal bench"] },
+                    Ceramic: { Small: ["Decorative ceramic tile set", "Mini ceramic vase", "Mosaic trivet", "Handmade mug set", "Ceramic earrings"], Medium: ["Large ceramic planter", "Tile-top stool", "Decorative wall panel", "Ceramic sink stand", "Mosaic chair side table"], Large: ["Ceramic tiled bench", "Large mosaic table", "Outdoor ceramic planter wall", "Custom ceramic garden path", "Large tile art wall"] },
+                    Vibraium: { Small: ["Prototype energy token", "Mini display shield", "Tech badge", "Collector coin", "Sci-fi keyfob"], Medium: ["Advanced gauntlet unit", "Display reactor", "Helmet shell", "Energy blade stand", "Custom sci-fi rack"], Large: ["Full armor display", "Reactor wall display", "Cosplay chestpiece", "Heroic shield panel", "Large sci-fi installation"] },
+                    Brick: { Small: ["Brick ornament set", "Brick bookend pair", "Mini brick planter", "Brick candle jars", "Brick desk tray"], Medium: ["Brick table base", "Brick compost bin", "Brick rolling cart", "Brick pub stool", "Brick fireplace surround"], Large: ["Brick pizza oven", "Brick patio set", "Brick storage wall", "Brick outdoor oven", "Brick garden retreat"] },
+                    "Culinary supplies": { Small: ["Decorative sugar set", "Mini spice display", "Pasta sculpture set", "Cookie cutter art", "Clay food prop set"], Medium: ["Large culinary centerpiece", "Pasta-art partition", "Spice organizer wall", "Bread-form stool", "Tabletop food display"], Large: ["Giant gingerbread structure", "Large food-art installation", "Culinary mural wall", "Pasta architecture display", "Festival food tableau"] },
+                    Other: { Small: ["Origami set box", "Plastic art panel", "Rope key organizer", "Bottle-cap display", "Cardboard organizer kit"], Medium: ["Mixed-material chair", "PVC art frame", "Tarp shade panel", "Cardboard display wall", "Rope wall sculpture"], Large: ["Large recycled installation", "PVC workshop frame", "Tarp structure", "Large cardboard build", "Mixed-material furniture set"] }
+                }
+            };
+
+            function normalizeStructure(value) {
+                if (!value) return "";
+                return value.trim();
+            }
+
+            function getIdeasForCurrentSelection() {
+                if (!selectedBudget || !selectedStructure || !selectedScope) {
+                    return [];
+                }
+
+                const budgetKey = selectedBudget;
+                const structureKey = normalizeStructure(selectedStructure);
+                const scopeKey = selectedScope;
+
+                const budgetGroup = ideaDatabase[budgetKey] || ideaDatabase["$1"];
+                const structureGroup = budgetGroup[structureKey] || budgetGroup.Wood || {};
+                const matches = structureGroup[scopeKey] || [];
+
+                return matches.slice(0, 5);
+            }
+
+            function renderIdeas() {
+                const ideas = getIdeasForCurrentSelection();
+                ideaResults.innerHTML = ideas.map((idea) => `<li>${idea}</li>`).join('');
+            }
 
             function updateStatus(message, isVisible = true) {
                 statusText.textContent = message;
                 statusText.style.display = isVisible ? 'block' : 'none';
-            }
-
-            function buildPrompt() {
-                const ideaText = document.getElementById('idea').value.trim();
-                const goalText = document.getElementById('goal-input').value.trim();
-                const otherStructureInput = document.getElementById('other-structure');
-                const finalStructure = selectedStructure === 'Other'
-                    ? (otherStructureInput.value.trim() || 'custom material')
-                    : selectedStructure;
-
-                return [
-                    'Create a visually compelling concept-art style image based on this idea.',
-                    `Budget: ${selectedBudget || 'not specified'}.`,
-                    `Structure: ${finalStructure || 'not specified'}.`,
-                    `Scope: ${selectedScope || 'not specified'}.`,
-                    `Goal: ${goalText || 'No specific world change provided.'}.`,
-                    `Description: ${ideaText || 'No additional description provided.'}.`,
-                    'Make it creative, polished, and highly imaginative.'
-                ].join(' ');
             }
 
             document.querySelectorAll('.option').forEach((button) => {
@@ -300,6 +335,7 @@
                             otherWrapper.classList.add('hidden');
                             otherInput.value = '';
                         }
+                        renderIdeas();
                         return;
                     }
 
@@ -307,6 +343,7 @@
                         document.querySelectorAll('.scope-option').forEach((btn) => btn.classList.remove('selected'));
                         button.classList.add('selected');
                         selectedScope = button.dataset.scope || button.textContent.trim();
+                        renderIdeas();
                         return;
                     }
 
@@ -317,60 +354,11 @@
                     });
                     button.classList.add('selected');
                     selectedBudget = button.dataset.budget || button.textContent.trim();
+                    renderIdeas();
                 });
             });
 
-            document.getElementById('idea-form').addEventListener('submit', async (event) => {
-                event.preventDefault();
-
-                const ideaText = document.getElementById('idea').value.trim();
-                const goalText = document.getElementById('goal-input').value.trim();
-
-                if (!selectedBudget || !selectedStructure || !selectedScope || !goalText || !ideaText) {
-                    updateStatus('Please complete all stages before generating an image.');
-                    return;
-                }
-
-                const prompt = buildPrompt();
-                resultImage.style.display = 'none';
-                updateStatus('Generating your image...');
-
-                try {
-                    const response = await fetch('http://localhost:5000/generate', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ prompt: prompt })
-                    });
-
-                    const data = await response.json();
-
-                    if (!response.ok) {
-                        throw new Error(data.error || 'The backend request failed.');
-                    }
-
-                    const imagePayload = data.data && data.data[0];
-                    if (!imagePayload) {
-                        throw new Error('No image data was returned by the backend.');
-                    }
-
-                    if (imagePayload.b64_json) {
-                        resultImage.src = `data:image/png;base64,${imagePayload.b64_json}`;
-                    } else if (imagePayload.url) {
-                        resultImage.src = imagePayload.url;
-                    } else {
-                        throw new Error('The backend returned an unexpected image format.');
-                    }
-
-                    resultImage.style.display = 'block';
-                    updateStatus('Image generated successfully.');
-                } catch (error) {
-                    console.error(error);
-                    updateStatus('Image generation failed. Make sure the Flask server is running on port 5000.');
-                    alert(`There was a problem generating the image: ${error.message}`);
-                }
-            });
+            renderIdeas();
         </script>
     </body>
 </html>

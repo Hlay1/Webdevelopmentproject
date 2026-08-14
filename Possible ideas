@@ -1,0 +1,1212 @@
+BUILDER IDEA REFERENCE FORMAT
+Each result is keyed by: Budget / Structure / Scope
+Example structure:
+- $1 / Wood / Small = [Toothpick model bridge, Mini wooden bookmark (scrap wood), Popsicle‑stick phone stand, Scrap‑wood keychain, Tiny wooden puzzle piece]
+- $1 / Wood / Medium = [Small shelf from discarded pallet wood, Rustic picture frame, Simple bird perch, Scrap‑wood desk organizer, Mini planter box]
+- $1 / Wood / Large = [Pallet‑wood outdoor bench, Garden compost bin, Rustic wall paneling, Wooden crate storage system, DIY pallet coffee table]
+
+The groups below follow this same pattern so the Builder can select one budget, one material, and one size and pull a five-item result set.
+
+---
+
+🪵 Wood
+Small
+Toothpick model bridge
+
+Mini wooden bookmark (scrap wood)
+
+Popsicle‑stick phone stand
+
+Scrap‑wood keychain
+
+Tiny wooden puzzle piece
+
+Medium
+Small shelf from discarded pallet wood
+
+Rustic picture frame
+
+Simple bird perch
+
+Scrap‑wood desk organizer
+
+Mini planter box
+
+Large
+Pallet‑wood outdoor bench
+
+Garden compost bin
+
+Rustic wall paneling
+
+Wooden crate storage system
+
+DIY pallet coffee table
+
+🔩 Steel
+Small
+Paperclip sculpture
+
+Tin‑can candle holder
+
+Small wire hook
+
+Binder‑clip phone stand
+
+Steel washer keychain
+
+Medium
+Tin‑can lantern
+
+Wire photo display
+
+Scrap‑metal wind chime
+
+Simple metal bracket shelf
+
+Steel‑washer coaster set
+
+Large
+Scrap‑metal garden trellis
+
+Rebar art sculpture
+
+Tin‑can rocket stove
+
+Sheet‑metal reflector oven
+
+Steel‑pipe clothes rack (found pipes)
+
+🏺 Ceramic
+Small
+Broken‑tile mosaic coaster
+
+Ceramic shard jewelry
+
+Mini planter from a broken mug
+
+Mosaic fridge magnet
+
+Ceramic shard keychain
+
+Medium
+Mosaic stepping stone
+
+Tile‑top side table (scrap tile)
+
+Ceramic wall art
+
+Mosaic serving tray
+
+Broken‑pot fairy garden
+
+Large
+Mosaic patio tabletop
+
+Ceramic garden path
+
+Large mosaic mural
+
+Repaired pottery display
+
+Ceramic‑tile fire pit surround
+
+🛡️ Vibranium (fictional)
+Small
+Mini “energy core” prop
+
+Vibranium‑themed keychain
+
+Tiny shield replica
+
+Sci‑fi badge
+
+Micro‑prop for cosplay
+
+Medium
+Vibranium gauntlet prop
+
+Sci‑fi wall panel
+
+Futuristic mask
+
+Energy‑reactor desk ornament
+
+Vibranium‑style dagger prop
+
+Large
+Full cosplay shield
+
+Sci‑fi armor chest piece
+
+Vibranium reactor display
+
+Futuristic door panel
+
+Full helmet build
+
+🧱 Brick
+Small
+Mini brick paperweight
+
+Brick pencil holder
+
+Brick bookend
+
+Brick planter
+
+Brick candle stand
+
+Medium
+Brick BBQ starter chimney
+
+Brick garden border
+
+Brick fire‑safe box
+
+Brick tool stand
+
+Brick outdoor stool
+
+Large
+Brick oven base
+
+Brick fire pit
+
+Brick retaining wall
+
+Brick grill station
+
+Brick patio square
+
+🍳 Culinary Supplies
+Small
+Sugar‑cube sculpture
+
+Pasta‑stick model tower
+
+Salt‑dough ornament
+
+Spice‑jar candle holder
+
+Cookie‑cutter clay mold
+
+Medium
+Salt‑dough bowl
+
+Pasta‑art wall piece
+
+DIY spice rack (reused jars)
+
+Bread‑dough sculpture
+
+Culinary‑themed centerpiece
+
+Large
+Gingerbread architectural model
+
+Large salt‑dough statue
+
+Pasta‑art mural
+
+Culinary‑material sculpture
+
+Food‑based event display
+
+🧰 Other
+Small
+Paper origami
+
+Rubber‑band powered car
+
+Bottle‑cap art
+
+Cardboard phone stand
+
+Mini duct‑tape wallet
+
+Medium
+Cardboard VR viewer
+
+Plastic‑bottle planter
+
+Rope wall hanging
+
+DIY kite
+
+Simple LED throwie
+
+Large
+Cardboard furniture
+
+PVC pipe greenhouse frame
+
+Large rope hammock
+
+DIY tarp shelter
+
+Recycled‑material sculpture
+
+💵 BUDGET: $10
+(To keep this readable, I’ll continue the same structure but compress descriptions slightly. All 105 combinations are still included.)
+
+🪵 Wood
+Small
+Carved spoon
+
+Wooden dice
+
+Mini jewelry box
+
+Small picture frame
+
+Wooden puzzle
+
+Medium
+Cutting board
+
+Wall shelf
+
+Birdhouse
+
+Tool caddy
+
+Coat rack
+
+Large
+Coffee table
+
+Garden bench
+
+Bookshelf
+
+Raised planter
+
+Shoe rack
+
+🔩 Steel
+Small
+Steel‑washer fidget toy
+
+Wire sculpture
+
+Tin‑can stove
+
+Small bracket set
+
+Metal key organizer
+
+Medium
+Metal wall art
+
+Wire basket
+
+Steel‑pipe lamp base
+
+Sheet‑metal toolbox
+
+Rebar garden stake
+
+Large
+Steel‑pipe shelving
+
+Metal fire pit
+
+Welded sculpture
+
+Steel‑frame table
+
+Metal garden arch
+
+🏺 Ceramic
+Small
+Painted tile coaster
+
+Mini ceramic planter
+
+Mosaic trivet
+
+Tile magnet set
+
+Ceramic pendant
+
+Medium
+Mosaic mirror frame
+
+Tile backsplash panel
+
+Ceramic wall mosaic
+
+Tile‑top table
+
+Ceramic planter pot
+
+Large
+Mosaic patio table
+
+Ceramic fountain base
+
+Large tile mural
+
+Ceramic garden path
+
+Tile fire‑pit surround
+
+🛡️ Vibranium (fictional)
+Small
+Mini shield
+
+Energy‑core prop
+
+Vibranium coin
+
+Sci‑fi badge
+
+Tiny armor plate
+
+Medium
+Arm bracer
+
+Helmet front plate
+
+Reactor prop
+
+Vibranium dagger
+
+Sci‑fi shoulder armor
+
+Large
+Full shield
+
+Chest armor
+
+Helmet
+
+Reactor display
+
+Full cosplay suit
+
+🧱 Brick
+Small
+Brick candle holder
+
+Brick bookend
+
+Brick planter
+
+Brick incense stand
+
+Brick paperweight
+
+Medium
+Brick grill starter
+
+Brick garden border
+
+Brick tool stand
+
+Brick stool
+
+Brick mailbox base
+
+Large
+Brick oven
+
+Brick fire pit
+
+Brick patio
+
+Brick retaining wall
+
+Brick grill station
+
+🍳 Culinary Supplies
+Small
+Salt‑dough ornaments
+
+Sugar‑cube sculptures
+
+Pasta‑art models
+
+Spice‑jar crafts
+
+Cookie‑cutter clay shapes
+
+Medium
+Salt‑dough bowls
+
+Pasta‑art wall decor
+
+Culinary centerpiece
+
+Bread‑dough sculpture
+
+Jar‑based lanterns
+
+Large
+Gingerbread structures
+
+Large salt‑dough statue
+
+Pasta mural
+
+Culinary sculpture
+
+Food‑art display
+
+🧰 Other
+Small
+Duct‑tape wallet
+
+Origami set
+
+Bottle‑cap art
+
+Cardboard organizer
+
+Rope keychain
+
+Medium
+PVC frame
+
+Cardboard VR viewer
+
+Rope wall hanging
+
+Plastic‑bottle lamp
+
+DIY kite
+
+Large
+PVC greenhouse
+
+Cardboard furniture
+
+Rope hammock
+
+Tarp shelter
+
+Recycled sculpture
+
+💵 BUDGET: $100
+(Same structure, upgraded materials/tools.)
+
+🪵 Wood
+Small
+Hardwood pen
+
+Carved figurine
+
+Premium picture frame
+
+Jewelry box
+
+Wooden phone amplifier
+
+Medium
+Hardwood cutting board
+
+Floating shelf
+
+Wooden stool
+
+Birdhouse deluxe
+
+Tool chest
+
+Large
+Dining table
+
+Bookshelf
+
+Garden bench
+
+Bed frame
+
+Workbench
+
+🔩 Steel
+Small
+Machined keychain
+
+Steel sculpture
+
+Precision brackets
+
+Metal puzzle
+
+Steel pen
+
+Medium
+Welded stool
+
+Metal toolbox
+
+Steel wall art
+
+Pipe lamp
+
+Rebar trellis
+
+Large
+Steel‑frame table
+
+Fire pit
+
+Metal shelving
+
+Welded sculpture
+
+Steel garden arch
+
+🏺 Ceramic
+Small
+Fired clay ornament
+
+Ceramic mug
+
+Glazed tile art
+
+Mini planter
+
+Ceramic pendant
+
+Medium
+Ceramic bowl
+
+Mosaic table
+
+Tile backsplash
+
+Ceramic wall art
+
+Pottery set
+
+Large
+Ceramic fountain
+
+Large mosaic mural
+
+Tile patio
+
+Ceramic fire pit surround
+
+Garden path
+
+🛡️ Vibranium (fictional)
+Small
+High‑detail prop
+
+Mini reactor
+
+Precision shield
+
+Sci‑fi badge
+
+Armor plate
+
+Medium
+Helmet
+
+Arm bracer
+
+Chest plate
+
+Reactor core
+
+Sci‑fi weapon prop
+
+Large
+Full armor suit
+
+Large shield
+
+Reactor display
+
+Sci‑fi door panel
+
+Full cosplay build
+
+🧱 Brick
+Small
+Brick sculpture
+
+Brick planter
+
+Brick bookend
+
+Brick candle holder
+
+Brick incense stand
+
+Medium
+Brick grill
+
+Brick garden border
+
+Brick stool
+
+Brick mailbox base
+
+Brick firebox
+
+Large
+Brick oven
+
+Brick patio
+
+Brick retaining wall
+
+Brick fire pit
+
+Brick grill station
+
+🍳 Culinary Supplies
+Small
+Decorative sugar sculptures
+
+Gourmet salt‑dough art
+
+Pasta‑art models
+
+Spice‑jar lanterns
+
+Cookie‑cutter ceramics
+
+Medium
+Culinary centerpiece
+
+Salt‑dough bowls
+
+Bread‑dough sculpture
+
+Pasta mural
+
+Food‑art display
+
+Large
+Gingerbread architecture
+
+Large salt‑dough statue
+
+Culinary sculpture
+
+Event display
+
+Food‑art installation
+
+🧰 Other
+Small
+Leather wallet
+
+Resin keychain
+
+Rope crafts
+
+Cardboard models
+
+LED gadgets
+
+Medium
+PVC furniture
+
+Rope wall art
+
+Plastic‑bottle lamp
+
+Cardboard VR
+
+DIY drone frame
+
+Large
+PVC greenhouse
+
+Cardboard furniture
+
+Rope hammock
+
+Tarp shelter
+
+Recycled sculpture
+
+💵 BUDGET: MORE? (Unlimited)
+(Premium materials, advanced tools.)
+
+🪵 Wood
+Small
+Exotic‑wood pen
+
+Fine carving
+
+Premium jewelry box
+
+Inlay artwork
+
+Wooden watch stand
+
+Medium
+Hardwood stool
+
+Inlay cutting board
+
+Floating shelf
+
+Wooden chest
+
+Sculpted wall art
+
+Large
+Dining table
+
+Bed frame
+
+Bookshelf
+
+Garden bench
+
+Full cabinetry
+
+🔩 Steel
+Small
+Machined sculpture
+
+Precision tool
+
+Steel pen
+
+Metal puzzle
+
+Custom bracket set
+
+Medium
+Welded stool
+
+Steel toolbox
+
+Pipe lamp
+
+Metal wall art
+
+Rebar trellis
+
+Large
+Steel‑frame furniture
+
+Fire pit
+
+Metal shelving
+
+Welded sculpture
+
+Steel garden arch
+
+🏺 Ceramic
+Small
+High‑fire pottery
+
+Glazed mug
+
+Ceramic pendant
+
+Tile art
+
+Mini planter
+
+Medium
+Pottery set
+
+Mosaic table
+
+Tile backsplash
+
+Ceramic wall art
+
+Sculpted vase
+
+Large
+Ceramic fountain
+
+Tile patio
+
+Mosaic mural
+
+Ceramic fire pit
+
+Garden path
+
+🛡️ Vibranium (fictional)
+Small
+High‑detail prop
+
+Reactor core
+
+Mini shield
+
+Sci‑fi badge
+
+Armor plate
+
+Medium
+Helmet
+
+Chest armor
+
+Arm bracer
+
+Reactor display
+
+Sci‑fi weapon
+
+Large
+Full armor suit
+
+Large shield
+
+Reactor installation
+
+Sci‑fi door panel
+
+Full cosplay build
+
+🧱 Brick
+Small
+Brick sculpture
+
+Brick planter
+
+Brick bookend
+
+Brick candle holder
+
+Brick incense stand
+
+Medium
+Brick grill
+
+Brick garden border
+
+Brick stool
+
+Brick mailbox base
+
+Brick firebox
+
+Large
+Brick oven
+
+Brick patio
+
+Brick retaining wall
+
+Brick fire pit
+
+Brick grill station
+
+🍳 Culinary Supplies
+Small
+Sugar sculptures
+
+Salt‑dough art
+
+Pasta models
+
+Spice‑jar lanterns
+
+Cookie‑cutter ceramics
+
+Medium
+Culinary centerpiece
+
+Salt‑dough bowls
+
+Bread sculpture
+
+Pasta mural
+
+Food‑art display
+
+Large
+Gingerbread architecture
+
+Culinary sculpture
+
+Event display
+
+Food‑art installation
+
+Large edible model
+
+🧰 Other
+Small
+Resin art
+
+Leatherwork
+
+Rope crafts
+
+LED gadgets
+
+Cardboard models
+
+Medium
+PVC furniture
+
+Rope wall art
+
+Plastic‑bottle lamp
+
+Cardboard VR
+
+DIY drone frame
+
+Large
+PVC greenhouse
+
+Cardboard furniture
+
+Rope hammock
+
+Tarp shelter
+
+Recycled sculpture
+
+💵 BUDGET: LESS??? (Free / scavenged)
+(Everything made from found, recycled, or repurposed materials.)
+
+🪵 Wood
+Small
+Scrap‑wood keychain
+
+Popsicle‑stick stand
+
+Toothpick model
+
+Bookmark
+
+Mini puzzle
+
+Medium
+Pallet shelf
+
+Picture frame
+
+Bird perch
+
+Desk organizer
+
+Planter box
+
+Large
+Pallet bench
+
+Compost bin
+
+Wall paneling
+
+Crate storage
+
+Coffee table
+
+🔩 Steel
+Small
+Paperclip sculpture
+
+Tin‑can holder
+
+Wire hook
+
+Washer keychain
+
+Binder‑clip stand
+
+Medium
+Tin‑can lantern
+
+Wire display
+
+Scrap‑metal chime
+
+Bracket shelf
+
+Washer coaster
+
+Large
+Garden trellis
+
+Rebar sculpture
+
+Rocket stove
+
+Reflector oven
+
+Pipe rack
+
+🏺 Ceramic
+Small
+Mosaic coaster
+
+Shard jewelry
+
+Mug planter
+
+Magnet
+
+Keychain
+
+Medium
+Stepping stone
+
+Mosaic tray
+
+Wall art
+
+Tile table
+
+Fairy garden
+
+Large
+Patio table
+
+Garden path
+
+Mural
+
+Pottery display
+
+Fire pit surround
+
+🛡️ Vibranium (fictional)
+Small
+Mini prop
+
+Badge
+
+Tiny shield
+
+Energy core
+
+Micro armor
+
+Medium
+Gauntlet
+
+Mask
+
+Wall panel
+
+Reactor ornament
+
+Dagger prop
+
+Large
+Shield
+
+Chest armor
+
+Reactor display
+
+Door panel
+
+Helmet
+
+🧱 Brick
+Small
+Paperweight
+
+Bookend
+
+Planter
+
+Candle stand
+
+Pencil holder
+
+Medium
+Chimney starter
+
+Garden border
+
+Tool stand
+
+Stool
+
+Fire‑safe box
+
+Large
+Oven base
+
+Fire pit
+
+Retaining wall
+
+Grill station
+
+Patio square
+
+🍳 Culinary Supplies
+Small
+Salt‑dough ornament
+
+Pasta tower
+
+Sugar cube art
+
+Spice‑jar craft
+
+Cookie‑cutter mold
+
+Medium
+Salt‑dough bowl
+
+Pasta wall art
+
+Bread sculpture
+
+Centerpiece
+
+Jar lantern
+
+Large
+Gingerbread model
+
+Salt‑dough statue
+
+Pasta mural
+
+Culinary sculpture
+
+Event display
+
+🧰 Other
+Small
+Origami
+
+Bottle‑cap art
+
+Rubber‑band car
+
+Cardboard stand
+
+Duct‑tape wallet
+
+Medium
+VR viewer
+
+Bottle planter
+
+Rope hanging
+
+Kite
+
+LED throwie
+
+Large
+Cardboard furniture
+
+PVC greenhouse
+
+Rope hammock
+
+Tarp shelter
+
+Recycled sculpture
